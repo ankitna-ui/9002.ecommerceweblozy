@@ -134,11 +134,6 @@ export function Navbar() {
                 </Link>
               )}
             </div>
-[...]
-            </Button>
-          </div>
-        </div>
-
             <Button
               className="lg:hidden rounded-full h-10 w-10 p-0"
               variant="outline"
