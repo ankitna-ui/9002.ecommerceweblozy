@@ -3,25 +3,35 @@ import { Mail, Phone, MapPin, Globe } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="container px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
-          <div className="space-y-6">
-            <img 
-              src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
-              alt="Pietro Fiorentini DB" 
-              className="h-12 w-auto object-contain brightness-0 invert dark:brightness-100 dark:invert-0"
-            />
-            <p className="text-sm text-muted-foreground leading-relaxed font-medium">
-              Technological solutions for the multi-gas system. An Italian success story leading the global energy transition with innovation and sustainability.
+    <footer className="relative bg-[#0A1A2F] text-white pt-32 pb-20 overflow-hidden border-t border-white/5">
+      {/* Decorative Background */}
+      <div className="absolute -top-24 -left-24 w-64 h-64 bg-brand-gold/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-navy/50 rounded-full blur-[150px]" />
+
+      <div className="container relative z-10 px-6">
+        <div className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-12 mb-24">
+          {/* Brand Column */}
+          <div className="lg:col-span-5 space-y-10">
+            <Link href="/" className="inline-block group">
+              <img 
+                src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
+                alt="Pietro Fiorentini DB" 
+                className="h-14 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-500"
+              />
+            </Link>
+            <p className="text-blue-100/60 text-lg leading-relaxed font-medium max-w-md border-l-2 border-brand-gold/30 pl-8">
+              Pioneering technological solutions for the global energy system. 
+              An Italian legacy leading the transition towards a sustainable, carbon-neutral future.
             </p>
-            <div className="flex space-x-6 pt-2">
-              <Link href="https://www.linkedin.com/company/pietro-fiorentini-s-p-a-/" target="_blank" className="hover:opacity-80 transition-opacity">
-                <img src="https://fiorentinidb.com/wp-content/uploads/2020/11/linkedin-gray.svg" alt="LinkedIn" className="h-6 w-6 dark:brightness-200" />
-              </Link>
-              <Link href="https://www.youtube.com/user/PietroFiorentiniSpa" target="_blank" className="hover:opacity-80 transition-opacity">
-                <img src="https://fiorentinidb.com/wp-content/uploads/2021/04/YT-icon-1.svg" alt="YouTube" className="h-6 w-6 dark:brightness-200" />
-              </Link>
+            <div className="flex gap-6 pt-4">
+              {[
+                { name: 'LinkedIn', icon: 'https://fiorentinidb.com/wp-content/uploads/2020/11/linkedin-gray.svg', url: 'https://www.linkedin.com/company/pietro-fiorentini-s-p-a-/' },
+                { name: 'YouTube', icon: 'https://fiorentinidb.com/wp-content/uploads/2021/04/YT-icon-1.svg', url: 'https://www.youtube.com/user/PietroFiorentiniSpa' }
+              ].map((social) => (
+                <Link key={social.name} href={social.url} target="_blank" className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-brand-navy transition-all group">
+                  <img src={social.icon} alt={social.name} className="h-5 w-5 brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all" />
+                </Link>
+              ))}
             </div>
           </div>
           

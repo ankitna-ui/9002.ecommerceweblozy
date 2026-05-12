@@ -284,23 +284,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Corporate Communications */}
-      <section className="py-32 bg-muted/10">
-        <div className="container max-w-5xl">
-          <div className="glass-card rounded-[3rem] p-12 md:p-20 text-center space-y-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-brand-gold" />
-            <Award className="h-16 w-16 text-brand-gold mx-auto" />
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-none">Engineering <br/>Bulletin</h2>
-              <p className="text-muted-foreground text-lg font-medium max-w-xl mx-auto">Subscribe to our technical briefing for insights on energy innovation and product releases.</p>
+      {/* Corporate Bulletin */}
+      <section className="py-40 bg-background px-6">
+        <div className="container max-w-6xl">
+          <div className="relative glass-card rounded-[4rem] p-16 md:p-24 text-center overflow-hidden border-none shadow-[0_50px_100px_rgba(0,0,0,0.08)]">
+            <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-brand-gold via-brand-gold/50 to-brand-gold" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl" />
+            
+            <Award className="h-20 w-20 text-brand-gold mx-auto mb-12" />
+            <div className="space-y-6 mb-16">
+              <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">Engineering <br/><span className="text-brand-gold">Bulletin</span></h2>
+              <p className="text-muted-foreground text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                Join our elite technical circle. Receive master-level briefings on energy innovation, infrastructure safety, and digital industrial protocols.
+              </p>
             </div>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto pt-6" onSubmit={(e) => e.preventDefault()}>
-               <input 
-                 type="email" 
-                 placeholder="Enter Corporate Email" 
-                 className="flex-1 h-16 rounded-full px-8 bg-background border-2 border-border focus:border-brand-gold outline-none font-bold transition-all"
-               />
-               <Button className="h-16 px-10 rounded-full bg-brand-navy text-white dark:bg-brand-gold dark:text-brand-navy font-black uppercase tracking-widest hover:scale-105 transition-all">
+            
+            <form className="flex flex-col md:flex-row gap-5 max-w-3xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+               <div className="relative flex-1">
+                 <input 
+                   type="email" 
+                   placeholder="Corporate Identity / Email" 
+                   className="w-full h-20 rounded-full px-12 bg-muted/50 border-2 border-transparent focus:border-brand-gold/50 focus:bg-background outline-none font-bold transition-all text-sm placeholder:text-muted-foreground/50 placeholder:uppercase placeholder:tracking-widest"
+                 />
+               </div>
+               <Button className="h-20 px-16 rounded-full bg-brand-navy text-white dark:bg-brand-gold dark:text-brand-navy font-black uppercase tracking-[0.3em] hover:scale-105 transition-all text-xs shadow-2xl shadow-brand-navy/20">
                  Join Protocol
                </Button>
             </form>
@@ -308,5 +315,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+
   );
 }
