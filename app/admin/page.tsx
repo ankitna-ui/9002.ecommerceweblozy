@@ -24,7 +24,8 @@ import {
   Layers,
   Sparkles,
   Megaphone,
-  Globe
+  Globe,
+  Settings
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
