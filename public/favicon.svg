@@ -1,0 +1,8 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#069782"/>
+  <!-- The stylized PF logo -->
+  <path d="M260 160V400" stroke="white" stroke-width="32" stroke-linecap="square"/>
+  <path d="M260 160H360" stroke="white" stroke-width="32" stroke-linecap="square"/>
+  <path d="M260 270H340" stroke="white" stroke-width="32" stroke-linecap="square"/>
+  <path d="M260 160H180V270H260" stroke="white" stroke-width="32" stroke-linejoin="miter" stroke-linecap="square"/>
+</svg>

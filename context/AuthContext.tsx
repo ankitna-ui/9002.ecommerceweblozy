@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { User } from "@/types";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { BrandLoader } from "@/components/common/BrandLoader";
 
 interface AuthContextType {
   user: User | null;
@@ -33,7 +34,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
   };
 
-  if (!isMounted) return null; // Avoid hydration mismatch
+  if (!isMounted) return <BrandLoader />; // Show premium loader during hydration
 
   return (
     <AuthContext.Provider

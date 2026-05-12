@@ -12,6 +12,10 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat
 export const metadata: Metadata = {
   title: "Pietro Fiorentini DB | E-Commerce Prototype",
   description: "Technological solutions for the multi-gas system. An Italian success story. A global benchmark in energy, innovation and sustainability.",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
