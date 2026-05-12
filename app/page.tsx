@@ -47,67 +47,71 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[95vh] flex items-center overflow-hidden bg-brand-navy pt-20">
+      <section className="relative h-screen flex items-center overflow-hidden bg-[#0A1A2F] pt-20">
         <motion.div 
           style={{ y: y1 }}
-          className="absolute inset-0 bg-[url('https://fiorentinidb.com/wp-content/uploads/2024/01/Slide-3.jpg')] bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-[url('https://fiorentinidb.com/wp-content/uploads/2024/01/Slide-3.jpg')] bg-cover bg-center opacity-50 mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(199,168,47,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1A2F]/90 via-[#0A1A2F]/60 to-[#0A1A2F]" />
         
-        <div className="container relative z-10">
+        {/* Animated Background Element */}
+        <div className="absolute top-1/4 -right-20 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-[200px] animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-[600px] h-[600px] bg-[#069782]/15 rounded-full blur-[150px]" />
+
+        <div className="container relative z-10 px-10">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="max-w-4xl space-y-8"
+            className="max-w-6xl"
           >
-            <motion.div variants={fadeInUp}>
-              <Badge className="px-4 py-1.5 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-black uppercase tracking-[0.3em] border border-brand-gold/20 backdrop-blur-md">
-                Industry Leader Since 1940
+            <motion.div variants={fadeInUp} className="mb-8">
+              <Badge className="px-6 py-2 rounded-full bg-brand-gold/15 text-brand-gold text-[11px] font-black uppercase tracking-[0.5em] border border-brand-gold/40 backdrop-blur-3xl shadow-2xl">
+                Global Energy Benchmark
               </Badge>
             </motion.div>
 
             <motion.h1 
               variants={fadeInUp}
-              className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9] text-white"
+              className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-white mb-10"
             >
-              The Master <br/>
-              <span className="text-brand-gold drop-shadow-2xl">Evolution</span> <br/>
+              Mastering <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-gold to-white/80 drop-shadow-2xl">Evolution</span> <br/>
               of Energy
             </motion.h1>
 
             <motion.p 
               variants={fadeInUp}
-              className="text-lg md:text-xl text-blue-100/70 max-w-2xl font-medium leading-relaxed"
+              className="text-xl md:text-2xl text-blue-100/70 max-w-3xl font-medium leading-relaxed mb-16 border-l-4 border-brand-gold/60 pl-10"
             >
-              Pioneering technological solutions for the global energy transition. Engineering the future with Hydrogen-ready infrastructure and intelligent gas systems.
+              Engineering sustainable solutions for the global energy transition. 
+              Hydrogen-ready infrastructure and intelligent gas management systems designed for the next century.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-5 pt-4">
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-8">
               <Link href="/shop">
-                <Button className="h-16 px-10 text-xs font-black uppercase tracking-[0.2em] bg-brand-gold text-brand-navy rounded-full hover:scale-105 transition-all shadow-2xl shadow-brand-gold/20">
+                <Button className="h-20 px-16 text-xs font-black uppercase tracking-[0.3em] bg-brand-gold text-brand-navy rounded-full hover:scale-105 active:scale-95 transition-all shadow-[0_25px_60px_rgba(199,168,47,0.4)] group">
                   Access Inventory
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-4 h-6 w-6 group-hover:translate-x-3 transition-transform" />
                 </Button>
               </Link>
               <Link href="/solutions">
-                <Button variant="outline" className="h-16 px-10 text-xs font-black uppercase tracking-[0.2em] rounded-full border-white/20 text-white hover:bg-white/10 backdrop-blur-md">
-                  Explore Solutions
+                <Button variant="outline" className="h-20 px-16 text-xs font-black uppercase tracking-[0.3em] rounded-full border-white/30 text-white hover:bg-white/10 backdrop-blur-2xl hover:border-white/50 transition-all">
+                  Our Solutions
                 </Button>
               </Link>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Floating Scroll Indicator */}
+        {/* Scroll Indicator */}
         <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
+          animate={{ opacity: [0.3, 0.7, 0.3], y: [0, 15, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6"
         >
-          <div className="w-px h-12 bg-white" />
-          <span className="text-[8px] font-black uppercase tracking-[0.4em] text-white">Scroll</span>
+          <span className="text-[11px] font-black uppercase tracking-[0.6em] text-white/50 vertical-text">Explore System</span>
+          <div className="w-px h-24 bg-gradient-to-b from-brand-gold via-brand-gold/50 to-transparent" />
         </motion.div>
       </section>
 
@@ -138,49 +142,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise & Categories */}
-      <section className="py-32 bg-muted/20 relative overflow-hidden">
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-10">
-            <div className="max-w-2xl space-y-4">
-              <Badge variant="outline" className="border-brand-gold text-brand-gold uppercase tracking-[0.3em] font-black text-[10px]">Division Expertise</Badge>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.9]">Technological <br/><span className="text-brand-gold">Superiority</span></h2>
-            </div>
-            <p className="max-w-md text-muted-foreground font-medium text-base border-l-2 border-brand-gold pl-6 py-2">
-              Our engineering prowess spans across the entire natural gas and hydrogen value chain, ensuring high-performance results.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {categories.map((cat, i) => (
-              <Link key={cat.id} href={`/shop?category=${cat.name}`}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group relative h-[450px] overflow-hidden rounded-[2.5rem] bg-card border hover:border-brand-gold transition-all duration-700"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-navy/90 group-hover:to-brand-navy transition-all duration-700" />
-                  <div className="absolute inset-0 p-10 flex flex-col justify-between z-10">
-                    <div className="h-16 w-16 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-gold group-hover:text-brand-navy transition-all duration-500">
-                      {i % 2 === 0 ? <Zap className="h-8 w-8" /> : <Globe className="h-8 w-8" />}
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-black tracking-tighter uppercase mb-4 text-white">{cat.name}</h3>
-                      <p className="text-blue-100/60 font-medium line-clamp-3 group-hover:text-white transition-colors text-sm">{cat.description}</p>
-                      <div className="mt-6 flex items-center gap-2 text-brand-gold opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest">Explore Category</span>
-                        <ChevronRight className="h-4 w-4" />
+      {/* Categories Grid */}
+      <section className="py-48 container px-10 overflow-hidden">
+        <div className="flex flex-col items-center text-center mb-32 max-w-4xl mx-auto space-y-8">
+          <Badge variant="outline" className="border-brand-gold/50 text-brand-gold uppercase tracking-[0.6em] font-black text-[11px] px-10 py-3.5 rounded-full bg-brand-gold/10 shadow-2xl backdrop-blur-md">
+            Division Mastery
+          </Badge>
+          <h2 className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-brand-navy dark:text-white">
+            Technological <br/><span className="text-brand-gold">Superiority</span>
+          </h2>
+          <div className="w-40 h-2 bg-brand-gold/30 rounded-full" />
+          <p className="text-muted-foreground font-medium text-2xl max-w-2xl leading-relaxed opacity-70 italic">
+            "Engineering the global energy transition through precision, innovation, and unwavering sustainability."
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          {categories.map((cat, i) => (
+            <Link key={cat.id} href={`/shop?category=${cat.name}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative h-[700px] overflow-hidden rounded-[4rem] bg-brand-navy transition-all duration-1000 hover:shadow-[0_60px_100px_rgba(26,62,96,0.2)]"
+              >
+                {/* Background Image Overlay (Using high-quality industrial placeholders) */}
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/0 via-brand-navy/40 to-brand-navy group-hover:via-brand-navy/60 transition-all duration-1000" />
+                
+                <div className="absolute inset-0 p-20 flex flex-col justify-end z-10">
+                  <motion.div 
+                    className="h-24 w-24 rounded-[2rem] bg-brand-gold text-brand-navy shadow-2xl flex items-center justify-center mb-12 group-hover:rotate-[360deg] transition-all duration-1000"
+                  >
+                    {i % 2 === 0 ? <Zap className="h-12 w-12 fill-current" /> : <Globe className="h-12 w-12" />}
+                  </motion.div>
+                  <div className="space-y-10">
+                    <h3 className="text-5xl font-black tracking-tighter uppercase text-white leading-[0.9] group-hover:text-brand-gold transition-colors duration-500">{cat.name}</h3>
+                    <p className="text-blue-100/60 font-medium text-lg leading-relaxed line-clamp-3 opacity-0 group-hover:opacity-100 translate-y-12 group-hover:translate-y-0 transition-all duration-700">
+                      {cat.description}
+                    </p>
+                    <div className="flex items-center gap-8 text-brand-gold opacity-0 group-hover:opacity-100 transition-all translate-y-16 group-hover:translate-y-0 duration-700 delay-200">
+                      <span className="text-[12px] font-black uppercase tracking-[0.5em]">Explore Division</span>
+                      <div className="flex-1 h-px bg-brand-gold/50" />
+                      <div className="h-14 w-14 rounded-full border-2 border-brand-gold/30 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-navy group-hover:border-brand-gold transition-all duration-500">
+                        <ChevronRight className="h-8 w-8" />
                       </div>
                     </div>
                   </div>
-                  {/* Decorative element */}
-                  <div className="absolute -right-20 -bottom-20 h-64 w-64 bg-brand-gold/5 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-all duration-700" />
-                </motion.div>
-              </Link>
-            ))}
-          </div>
+                </div>
+                
+                {/* Visual Glow */}
+                <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-gold/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </section>
 

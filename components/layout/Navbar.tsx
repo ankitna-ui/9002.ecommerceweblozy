@@ -43,69 +43,69 @@ export function Navbar() {
     <>
       <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-500",
-        scrolled ? "bg-background/80 backdrop-blur-2xl border-b py-3" : "bg-transparent py-6"
+        scrolled ? "bg-background/90 backdrop-blur-2xl border-b py-3 shadow-lg" : "bg-transparent py-6"
       )}>
-        <div className="container flex h-16 items-center justify-between px-8">
-          <div className="flex items-center gap-16">
+        <div className="container flex h-20 items-center justify-between px-8">
+          <div className="flex items-center gap-20">
             <Link href="/" className="group relative z-10 block">
               <img 
                 src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
                 alt="Pietro Fiorentini DB" 
                 className={cn(
-                  "h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105",
+                  "h-16 w-auto object-contain transition-all duration-500 group-hover:scale-110",
                   !scrolled && !isAdminPage && !isLoginPage ? "brightness-0 invert" : ""
                 )}
               />
-              <div className="absolute -inset-3 bg-brand-gold/0 group-hover:bg-brand-gold/5 rounded-2xl transition-all -z-10" />
+              <div className="absolute -inset-4 bg-brand-gold/0 group-hover:bg-brand-gold/10 rounded-2xl transition-all -z-10" />
             </Link>
 
-            <nav className="hidden lg:flex gap-10">
+            <nav className="hidden lg:flex gap-12">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative group"
+                  className="relative group py-2"
                 >
                   <span className={cn(
-                    "text-[11px] font-black uppercase tracking-[0.3em] transition-all duration-300",
+                    "text-[12px] font-black uppercase tracking-[0.35em] transition-all duration-300",
                     pathname === link.href 
                       ? "text-brand-gold" 
-                      : scrolled || isAdminPage || isLoginPage ? "text-foreground/60 group-hover:text-foreground" : "text-white/60 group-hover:text-white"
+                      : scrolled || isAdminPage || isLoginPage ? "text-foreground/70 group-hover:text-foreground" : "text-white/70 group-hover:text-white"
                   )}>
                     {link.name}
                   </span>
                   {pathname === link.href && (
                     <motion.div 
                       layoutId="nav-underline" 
-                      className="absolute -bottom-3 left-0 right-0 h-0.5 bg-brand-gold rounded-full shadow-[0_0_10px_rgba(199,168,47,0.5)]"
+                      className="absolute -bottom-1 left-0 right-0 h-1 bg-brand-gold rounded-full shadow-[0_0_15px_rgba(199,168,47,0.6)]"
                     />
                   )}
-                  <div className="absolute -bottom-3 left-0 right-0 h-0.5 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full opacity-50" />
+                  <div className="absolute -bottom-1 left-0 right-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full opacity-40" />
                 </Link>
               ))}
             </nav>
           </div>
 
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 p-1 bg-muted/30 backdrop-blur-xl rounded-full border border-border/50">
-               <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full h-9 w-9 hover:bg-background shadow-none transition-all">
-                 <Sun className="h-4.5 w-4.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                 <Moon className="absolute h-4.5 w-4.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3 p-1.5 bg-muted/20 backdrop-blur-3xl rounded-full border border-border/40">
+               <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full h-10 w-10 hover:bg-background shadow-inner transition-all">
+                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                 <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                </Button>
                <Button 
                 variant="ghost" 
                 size="icon" 
-                className="relative rounded-full h-9 w-9 hover:bg-background shadow-none transition-all" 
+                className="relative rounded-full h-10 w-10 hover:bg-background shadow-inner transition-all" 
                 onClick={() => setIsCartOpen(true)}
                >
-                 <ShoppingCart className="h-4.5 w-4.5" />
+                 <ShoppingCart className="h-5 w-5" />
                  <AnimatePresence>
                    {itemCount > 0 && (
                      <motion.span 
                        initial={{ scale: 0 }}
                        animate={{ scale: 1 }}
                        exit={{ scale: 0 }}
-                       className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-brand-gold text-[9px] font-black text-brand-navy ring-2 ring-background"
+                       className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-gold text-[10px] font-black text-brand-navy ring-2 ring-background shadow-lg"
                      >
                        {itemCount}
                      </motion.span>
@@ -114,26 +114,30 @@ export function Navbar() {
                </Button>
             </div>
             
-            <div className="hidden md:flex gap-3">
+            <div className="hidden md:flex gap-4">
               {isAuthenticated ? (
                 <Link href="/admin">
-                  <Button className="bg-brand-navy text-white rounded-full px-8 font-black uppercase tracking-[0.2em] text-[10px] h-12 gap-3 shadow-xl shadow-brand-navy/20 border-none hover:scale-105 transition-all">
-                    <User className="h-4 w-4" /> Management Portal
+                  <Button className="bg-brand-navy text-white rounded-full px-10 font-black uppercase tracking-[0.2em] text-[11px] h-14 gap-3 shadow-[0_15px_40px_rgba(26,62,96,0.25)] border-none hover:scale-105 active:scale-95 transition-all">
+                    <User className="h-4.5 w-4.5" /> Management Portal
                   </Button>
                 </Link>
               ) : (
                 <Link href="/login">
                   <Button className={cn(
-                    "rounded-full px-10 font-black uppercase tracking-[0.2em] text-[10px] h-12 transition-all border-none shadow-2xl",
+                    "rounded-full px-12 font-black uppercase tracking-[0.25em] text-[11px] h-14 transition-all border-none shadow-[0_15px_40px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95",
                     scrolled || isAdminPage || isLoginPage 
                       ? "bg-brand-navy text-white hover:bg-brand-gold hover:text-brand-navy" 
-                      : "bg-white text-brand-navy hover:bg-brand-gold"
+                      : "bg-white text-brand-navy hover:bg-brand-gold shadow-white/10"
                   )}>
                     Access System
                   </Button>
                 </Link>
               )}
             </div>
+[...]
+            </Button>
+          </div>
+        </div>
 
             <Button
               className="lg:hidden rounded-full h-10 w-10 p-0"
