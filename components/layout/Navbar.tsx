@@ -21,6 +21,8 @@ export function Navbar() {
   const { itemCount } = useCart();
   const { isAuthenticated, logout } = useAuth();
   const pathname = usePathname();
+  const isAdminPage = pathname?.startsWith("/admin");
+  const isLoginPage = pathname === "/login";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
