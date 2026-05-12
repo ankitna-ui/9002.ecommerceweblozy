@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Youtube, Twitter, Facebook, ArrowUpRight, Globe, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight, Globe, ShieldCheck, Zap } from "lucide-react";
 
 export function Footer() {
   return (
@@ -26,20 +26,24 @@ export function Footer() {
 
             <div className="flex flex-wrap gap-8">
               {[
-                { icon: <Linkedin className="h-7 w-7" />, href: "https://www.linkedin.com/company/pietro-fiorentini-s-p-a-/", label: "LinkedIn" },
-                { icon: <Youtube className="h-7 w-7" />, href: "https://www.youtube.com/user/PietroFiorentiniSpa", label: "YouTube" },
-                { icon: <Twitter className="h-7 w-7" />, href: "#", label: "Twitter" },
-                { icon: <Facebook className="h-7 w-7" />, href: "#", label: "Facebook" }
+                { name: 'LinkedIn', icon: 'https://fiorentinidb.com/wp-content/uploads/2020/11/linkedin-gray.svg', url: 'https://www.linkedin.com/company/pietro-fiorentini-s-p-a-/' },
+                { name: 'YouTube', icon: 'https://fiorentinidb.com/wp-content/uploads/2021/04/YT-icon-1.svg', url: 'https://www.youtube.com/user/PietroFiorentiniSpa' },
+                { name: 'Twitter', icon: 'https://cdn-icons-png.flaticon.com/512/733/733579.png', url: '#' },
+                { name: 'Facebook', icon: 'https://cdn-icons-png.flaticon.com/512/733/733547.png', url: '#' }
               ].map((social, i) => (
                 <a 
                   key={i} 
-                  href={social.href} 
+                  href={social.url} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-16 w-16 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy hover:border-brand-gold transition-all duration-500 hover:-translate-y-3 group shadow-2xl"
-                  aria-label={social.label}
+                  className="h-16 w-16 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-gold transition-all duration-500 hover:-translate-y-3 group shadow-2xl"
+                  aria-label={social.name}
                 >
-                  {social.icon}
+                  <img 
+                    src={social.icon} 
+                    alt={social.name} 
+                    className="h-7 w-7 brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500" 
+                  />
                 </a>
               ))}
             </div>
