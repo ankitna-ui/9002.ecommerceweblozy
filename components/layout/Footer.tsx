@@ -14,9 +14,9 @@ export function Footer() {
           <div className="lg:col-span-5 space-y-16">
             <Link href="/" className="inline-block group">
               <img 
-                src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
+                src="/logomain.png" 
                 alt="Pietro Fiorentini DB" 
-                className="h-24 w-auto brightness-0 invert opacity-100 group-hover:scale-110 transition-all duration-700"
+                className="h-16 w-auto brightness-0 invert opacity-100 group-hover:scale-110 transition-all duration-700"
               />
             </Link>
             

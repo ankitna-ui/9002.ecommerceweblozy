@@ -49,7 +49,7 @@ export function Navbar() {
           <div className="flex items-center gap-16">
             <Link href="/" className="group relative z-10 block">
               <img 
-                src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
+                src="/logomain.png" 
                 alt="Pietro Fiorentini DB" 
                 className={cn(
                   "h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105",

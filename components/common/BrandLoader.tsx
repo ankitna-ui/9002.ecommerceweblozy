@@ -5,70 +5,46 @@ import { motion } from "framer-motion";
 export const BrandLoader = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/80 backdrop-blur-md">
-      <div className="relative w-24 h-24">
-        {/* Animated Background Square */}
+      <div className="relative w-32 h-32 flex items-center justify-center">
+        {/* Pulsing Aura */}
         <motion.div
-          className="absolute inset-0 bg-[#069782]"
-          initial={{ scale: 0.8, opacity: 0 }}
+          className="absolute inset-0 bg-brand-gold/20 rounded-full blur-2xl"
           animate={{ 
-            scale: [0.8, 1.1, 1],
-            opacity: 1,
-            borderRadius: ["20%", "0%", "0%"]
+            scale: [1, 1.4, 1],
+            opacity: [0.3, 0.6, 0.3]
           }}
           transition={{
-            duration: 1.5,
-            ease: "easeInOut",
-            times: [0, 0.5, 1],
+            duration: 2,
             repeat: Infinity,
-            repeatType: "reverse"
+            ease: "easeInOut"
           }}
         />
         
-        {/* SVG Logo Animation */}
-        <svg
-          className="absolute inset-0 w-full h-full p-4"
-          viewBox="0 0 512 512"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        {/* Favicon Logo */}
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
+          animate={{ scale: 1, opacity: 1, rotate: 0 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            duration: 1
+          }}
+          className="relative z-10"
         >
-          <motion.path
-            d="M260 160V400"
-            stroke="white"
-            strokeWidth="32"
-            strokeLinecap="square"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
+          <img 
+            src="/favicon.ico" 
+            alt="Loading" 
+            className="w-20 h-20 object-contain drop-shadow-[0_0_20px_rgba(199,168,47,0.4)]"
           />
-          <motion.path
-            d="M260 160H360"
-            stroke="white"
-            strokeWidth="32"
-            strokeLinecap="square"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          
+          {/* Scanning Effect */}
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-t from-transparent via-brand-gold/30 to-transparent h-1/2 w-full -top-full"
+            animate={{ top: ["100%", "-100%"] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
           />
-          <motion.path
-            d="M260 270H340"
-            stroke="white"
-            strokeWidth="32"
-            strokeLinecap="square"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          />
-          <motion.path
-            d="M260 160H180V270H260"
-            stroke="white"
-            strokeWidth="32"
-            strokeLinejoin="miter"
-            strokeLinecap="square"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1.2, delay: 0.9 }}
-          />
-        </svg>
+        </motion.div>
       </div>
 
       {/* Loading Text */}
