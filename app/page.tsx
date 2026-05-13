@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-[#0A1A2F] pt-20">
+      <section className="relative h-screen flex items-center overflow-hidden bg-[#0A1A2F]">
         <motion.div 
           style={{ y: y1 }}
           className="absolute inset-0 bg-[url('https://fiorentinidb.com/wp-content/uploads/2024/01/Slide-3.jpg')] bg-cover bg-center opacity-50 mix-blend-overlay"
@@ -65,15 +65,15 @@ export default function Home() {
             animate="animate"
             className="max-w-6xl"
           >
-            <motion.div variants={fadeInUp} className="mb-8">
-              <Badge className="px-6 py-2 rounded-full bg-brand-gold/15 text-brand-gold text-[11px] font-black uppercase tracking-[0.5em] border border-brand-gold/40 backdrop-blur-3xl shadow-2xl">
+            <motion.div variants={fadeInUp} className="mb-6">
+              <Badge className="px-5 py-1.5 rounded-full bg-brand-gold/15 text-brand-gold text-[10px] font-black uppercase tracking-[0.4em] border border-brand-gold/40 backdrop-blur-3xl shadow-2xl">
                 Global Energy Benchmark
               </Badge>
             </motion.div>
-
+ 
             <motion.h1 
               variants={fadeInUp}
-              className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-white mb-10"
+              className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85] text-white mb-8"
             >
               Mastering <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-brand-gold to-white/80 drop-shadow-2xl">Evolution</span> <br/>
@@ -82,21 +82,21 @@ export default function Home() {
 
             <motion.p 
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-blue-100/70 max-w-3xl font-medium leading-relaxed mb-16 border-l-4 border-brand-gold/60 pl-10"
+              className="text-lg md:text-xl text-blue-100/70 max-w-2xl font-medium leading-relaxed mb-12 border-l-4 border-brand-gold/60 pl-8"
             >
               Engineering sustainable solutions for the global energy transition. 
               Hydrogen-ready infrastructure and intelligent gas management systems designed for the next century.
             </motion.p>
-
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-8">
+ 
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
               <Link href="/shop">
-                <Button className="h-20 px-16 text-xs font-black uppercase tracking-[0.3em] bg-brand-gold text-brand-navy rounded-full hover:scale-105 active:scale-95 transition-all shadow-[0_25px_60px_rgba(199,168,47,0.4)] group">
+                <Button className="h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-gold text-brand-navy rounded-full hover:scale-105 active:scale-95 transition-all shadow-[0_20px_50px_rgba(199,168,47,0.3)] group">
                   Access Inventory
-                  <ArrowRight className="ml-4 h-6 w-6 group-hover:translate-x-3 transition-transform" />
+                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </Link>
               <Link href="/solutions">
-                <Button variant="outline" className="h-20 px-16 text-xs font-black uppercase tracking-[0.3em] rounded-full border-white/30 text-white hover:bg-white/10 backdrop-blur-2xl hover:border-white/50 transition-all">
+                <Button variant="outline" className="h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] rounded-full border-white/30 text-white hover:bg-white/10 backdrop-blur-2xl hover:border-white/50 transition-all">
                   Our Solutions
                 </Button>
               </Link>
@@ -148,11 +148,11 @@ export default function Home() {
           <Badge variant="outline" className="border-brand-gold/50 text-brand-gold uppercase tracking-[0.6em] font-black text-[11px] px-10 py-3.5 rounded-full bg-brand-gold/10 shadow-2xl backdrop-blur-md">
             Division Mastery
           </Badge>
-          <h2 className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-brand-navy dark:text-white">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.8] text-brand-navy dark:text-white">
             Technological <br/><span className="text-brand-gold">Superiority</span>
           </h2>
-          <div className="w-40 h-2 bg-brand-gold/30 rounded-full" />
-          <p className="text-muted-foreground font-medium text-2xl max-w-2xl leading-relaxed opacity-70 italic">
+          <div className="w-32 h-1.5 bg-brand-gold/30 rounded-full" />
+          <p className="text-muted-foreground font-medium text-xl max-w-2xl leading-relaxed opacity-70 italic">
             "Engineering the global energy transition through precision, innovation, and unwavering sustainability."
           </p>
         </div>

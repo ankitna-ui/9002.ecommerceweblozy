@@ -42,24 +42,26 @@ export function Navbar() {
   return (
     <>
       <header className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-500",
-        scrolled ? "bg-background/90 backdrop-blur-2xl border-b py-3 shadow-lg" : "bg-transparent py-6"
+        "fixed top-0 z-50 w-full transition-all duration-500",
+        scrolled ? "bg-background/95 backdrop-blur-3xl border-b py-2 shadow-2xl" : "bg-transparent py-4"
       )}>
-        <div className="container flex h-20 items-center justify-between px-8">
-          <div className="flex items-center gap-20">
+        <div className="container flex h-16 items-center justify-between px-8 mx-auto">
+          <div className="flex items-center gap-16">
             <Link href="/" className="group relative z-10 block">
               <img 
                 src="https://fiorentinidb.com/wp-content/uploads/2023/04/cropped-LOGO-Fio-India_CMYK_COLOR-1.png" 
                 alt="Pietro Fiorentini DB" 
                 className={cn(
-                  "h-16 w-auto object-contain transition-all duration-500 group-hover:scale-110",
-                  !scrolled && !isAdminPage && !isLoginPage ? "brightness-0 invert" : ""
+                  "h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105",
+                  !scrolled && !isAdminPage && !isLoginPage 
+                    ? "brightness-0 invert" 
+                    : theme === "dark" ? "brightness-0 invert" : "brightness-0"
                 )}
               />
               <div className="absolute -inset-4 bg-brand-gold/0 group-hover:bg-brand-gold/10 rounded-2xl transition-all -z-10" />
             </Link>
-
-            <nav className="hidden lg:flex gap-12">
+ 
+            <nav className="hidden lg:flex gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -67,20 +69,22 @@ export function Navbar() {
                   className="relative group py-2"
                 >
                   <span className={cn(
-                    "text-[12px] font-black uppercase tracking-[0.35em] transition-all duration-300",
+                    "text-[10px] font-black uppercase tracking-[0.4em] transition-all duration-300",
                     pathname === link.href 
                       ? "text-brand-gold" 
-                      : scrolled || isAdminPage || isLoginPage ? "text-foreground/70 group-hover:text-foreground" : "text-white/70 group-hover:text-white"
+                      : scrolled || isAdminPage || isLoginPage 
+                        ? "text-foreground/60 group-hover:text-foreground" 
+                        : "text-white/60 group-hover:text-white"
                   )}>
                     {link.name}
                   </span>
                   {pathname === link.href && (
                     <motion.div 
                       layoutId="nav-underline" 
-                      className="absolute -bottom-1 left-0 right-0 h-1 bg-brand-gold rounded-full shadow-[0_0_15px_rgba(199,168,47,0.6)]"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-gold rounded-full shadow-[0_0_15px_rgba(199,168,47,0.6)]"
                     />
                   )}
-                  <div className="absolute -bottom-1 left-0 right-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full opacity-40" />
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full opacity-40" />
                 </Link>
               ))}
             </nav>
@@ -117,14 +121,14 @@ export function Navbar() {
             <div className="hidden md:flex gap-4">
               {isAuthenticated ? (
                 <Link href="/admin">
-                  <Button className="bg-brand-navy text-white rounded-full px-10 font-black uppercase tracking-[0.2em] text-[11px] h-14 gap-3 shadow-[0_15px_40px_rgba(26,62,96,0.25)] border-none hover:scale-105 active:scale-95 transition-all">
-                    <User className="h-4.5 w-4.5" /> Management Portal
+                  <Button className="bg-brand-navy text-white rounded-full px-8 font-black uppercase tracking-[0.2em] text-[10px] h-12 gap-2 shadow-[0_15px_40px_rgba(26,62,96,0.25)] border-none hover:scale-105 active:scale-95 transition-all">
+                    <User className="h-4 w-4" /> Management Portal
                   </Button>
                 </Link>
               ) : (
                 <Link href="/login">
                   <Button className={cn(
-                    "rounded-full px-12 font-black uppercase tracking-[0.25em] text-[11px] h-14 transition-all border-none shadow-[0_15px_40px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95",
+                    "rounded-full px-10 font-black uppercase tracking-[0.2em] text-[10px] h-12 transition-all border-none shadow-[0_15px_40px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95",
                     scrolled || isAdminPage || isLoginPage 
                       ? "bg-brand-navy text-white hover:bg-brand-gold hover:text-brand-navy" 
                       : "bg-white text-brand-navy hover:bg-brand-gold shadow-white/10"
